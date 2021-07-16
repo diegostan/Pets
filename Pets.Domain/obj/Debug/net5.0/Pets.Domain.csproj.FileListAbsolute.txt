@@ -1,0 +1,12 @@
+C:\VSCode\Pets\Pets.Domain\bin\Debug\net5.0\Pets.Domain.deps.json
+C:\VSCode\Pets\Pets.Domain\bin\Debug\net5.0\Pets.Domain.dll
+C:\VSCode\Pets\Pets.Domain\bin\Debug\net5.0\ref\Pets.Domain.dll
+C:\VSCode\Pets\Pets.Domain\bin\Debug\net5.0\Pets.Domain.pdb
+C:\VSCode\Pets\Pets.Domain\obj\Debug\net5.0\Pets.Domain.csproj.AssemblyReference.cache
+C:\VSCode\Pets\Pets.Domain\obj\Debug\net5.0\Pets.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\VSCode\Pets\Pets.Domain\obj\Debug\net5.0\Pets.Domain.AssemblyInfoInputs.cache
+C:\VSCode\Pets\Pets.Domain\obj\Debug\net5.0\Pets.Domain.AssemblyInfo.cs
+C:\VSCode\Pets\Pets.Domain\obj\Debug\net5.0\Pets.Domain.csproj.CoreCompileInputs.cache
+C:\VSCode\Pets\Pets.Domain\obj\Debug\net5.0\Pets.Domain.dll
+C:\VSCode\Pets\Pets.Domain\obj\Debug\net5.0\ref\Pets.Domain.dll
+C:\VSCode\Pets\Pets.Domain\obj\Debug\net5.0\Pets.Domain.pdb

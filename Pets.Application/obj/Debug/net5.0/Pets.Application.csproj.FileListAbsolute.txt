@@ -1,0 +1,12 @@
+C:\VSCode\Pets\Pets.Application\bin\Debug\net5.0\Pets.Application.deps.json
+C:\VSCode\Pets\Pets.Application\bin\Debug\net5.0\Pets.Application.dll
+C:\VSCode\Pets\Pets.Application\bin\Debug\net5.0\ref\Pets.Application.dll
+C:\VSCode\Pets\Pets.Application\bin\Debug\net5.0\Pets.Application.pdb
+C:\VSCode\Pets\Pets.Application\obj\Debug\net5.0\Pets.Application.csproj.AssemblyReference.cache
+C:\VSCode\Pets\Pets.Application\obj\Debug\net5.0\Pets.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\VSCode\Pets\Pets.Application\obj\Debug\net5.0\Pets.Application.AssemblyInfoInputs.cache
+C:\VSCode\Pets\Pets.Application\obj\Debug\net5.0\Pets.Application.AssemblyInfo.cs
+C:\VSCode\Pets\Pets.Application\obj\Debug\net5.0\Pets.Application.csproj.CoreCompileInputs.cache
+C:\VSCode\Pets\Pets.Application\obj\Debug\net5.0\Pets.Application.dll
+C:\VSCode\Pets\Pets.Application\obj\Debug\net5.0\ref\Pets.Application.dll
+C:\VSCode\Pets\Pets.Application\obj\Debug\net5.0\Pets.Application.pdb
