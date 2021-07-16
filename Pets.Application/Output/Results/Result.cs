@@ -20,5 +20,10 @@ namespace Pets.Application.Output.Results
         public string Message { get; private set; }
         public bool IsOk { get; private set; }
         public IReadOnlyCollection<Notification> Notifications => _notifications;
+
+        public void SetNotifications(List<Notification> notifications)
+        {
+            _notifications = notifications;
+        }
     }
 }
