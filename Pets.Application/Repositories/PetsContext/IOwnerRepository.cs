@@ -8,8 +8,8 @@ namespace Pets.Application.Repositories.PetsContext
     public interface IOwnerRepository
     {
         void InsertOwner(Owner owner);
-        Task<IEnumerable<OwnerDTO>> GetOwnersByDocumentAsync(string document);
-        Task<IEnumerable<OwnerDTO>> GetOwnersByEmailAsync(string email);
+        Task<OwnerDTO> GetOwnerByDocumentAsync(string document);
+        Task<OwnerDTO> GetOwnerByEmailAsync(string email);
         
     }
 }
