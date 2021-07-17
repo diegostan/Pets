@@ -6,7 +6,7 @@ using Pets.Application.Output.Requests.VaccineRequest;
 
 namespace Pets.Application.Repositories
 {
-    public interface IVaccineCategoryRepository
+    public interface IVaccinePetsCategoryRepository
     {
         Task<IEnumerable<VaccinePetsCategoryRequest>> GetAllVaccinesByCategoryIdAsync(Guid categoryId);
     }

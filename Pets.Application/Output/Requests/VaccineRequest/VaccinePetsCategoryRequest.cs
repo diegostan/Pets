@@ -17,7 +17,6 @@ namespace Pets.Application.Output.Requests.VaccineRequest
         public string OwnerFirstName { get; set; }
         public string VaccineDescription { get; set; }
         public string CategoryDescription { get; set; }
-
         public IList<VaccineDTO> Vaccines { get; set; }                                
     }
 }
