@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pets.Application", "Pets.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pets.Domain", "Pets.Domain\Pets.Domain.csproj", "{8D45B4EB-B251-453B-A174-FDE7BF651F7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pets.Infrastructure", "Pets.Infrastructure\Pets.Infrastructure.csproj", "{0030ECD1-FCD9-4359-A4A8-A0022A00601A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{8D45B4EB-B251-453B-A174-FDE7BF651F7A}.Release|x64.Build.0 = Release|Any CPU
 		{8D45B4EB-B251-453B-A174-FDE7BF651F7A}.Release|x86.ActiveCfg = Release|Any CPU
 		{8D45B4EB-B251-453B-A174-FDE7BF651F7A}.Release|x86.Build.0 = Release|Any CPU
+		{0030ECD1-FCD9-4359-A4A8-A0022A00601A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0030ECD1-FCD9-4359-A4A8-A0022A00601A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0030ECD1-FCD9-4359-A4A8-A0022A00601A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0030ECD1-FCD9-4359-A4A8-A0022A00601A}.Debug|x64.Build.0 = Debug|Any CPU
+		{0030ECD1-FCD9-4359-A4A8-A0022A00601A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0030ECD1-FCD9-4359-A4A8-A0022A00601A}.Debug|x86.Build.0 = Debug|Any CPU
+		{0030ECD1-FCD9-4359-A4A8-A0022A00601A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0030ECD1-FCD9-4359-A4A8-A0022A00601A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0030ECD1-FCD9-4359-A4A8-A0022A00601A}.Release|x64.ActiveCfg = Release|Any CPU
+		{0030ECD1-FCD9-4359-A4A8-A0022A00601A}.Release|x64.Build.0 = Release|Any CPU
+		{0030ECD1-FCD9-4359-A4A8-A0022A00601A}.Release|x86.ActiveCfg = Release|Any CPU
+		{0030ECD1-FCD9-4359-A4A8-A0022A00601A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
