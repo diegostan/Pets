@@ -17,6 +17,7 @@ namespace Pets.Domain.Entities.VaccineContext
 
         public Guid Id { get; private set; }
         public DateTime CreatedOn { get; private set; }
+        public IReadOnlyCollection<Notification> Notifications => _notifications;
         public int GetNotificationCount => _notifications.Count;
 
         public void AddNotification(Notification notification)
