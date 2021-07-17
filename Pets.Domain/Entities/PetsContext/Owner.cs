@@ -20,11 +20,11 @@ namespace Pets.Domain.Entities.PetsContext
 
         public bool Validate()
         {
-            if (!NameValidations.FirstIsLenghtOk(Name, 3, 50))
+            if (NameValidations.FirstIsLenghtOk(Name, 3, 50))
                 this.AddNotification(new Notification(message: "Tamanho do primeiro nome deve conter entre 3 e 50 caracters"
                 , propertyName: nameof(Name)));
 
-            if (!NameValidations.LastIsLenghtOk(Name, 3, 50))
+            if (NameValidations.LastIsLenghtOk(Name, 3, 50))
                 this.AddNotification(new Notification(message: "Tamanho do segundo nome deve conter entre 3 e 50 caracters"
                , propertyName: nameof(Name)));
 

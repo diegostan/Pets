@@ -11,6 +11,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Pets.Application.Input.Commands.PetsContext;
+using Pets.Application.Input.Handlers.PetsContext;
+using Pets.Application.Repositories.PetsContext;
+using Pets.Infrastructure.AbsFactory;
+using Pets.Infrastructure.Factory;
+using Pets.Infrastructure.Repositories.PetsContext;
 
 namespace Pets.API
 {
@@ -26,8 +32,15 @@ namespace Pets.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddMvc();
             services.AddControllers();
+
+            services.AddScoped<AbsDBFactory, SqlFactory>();
+            services.AddTransient<IOwnerRepository, OwnerRepository>();
+
+            services.AddTransient<InsertOwnerHandler, InsertOwnerHandler>();
+            services.AddTransient<InsertOwnerCommand, InsertOwnerCommand>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pets.API", Version = "v1" });

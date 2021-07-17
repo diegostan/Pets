@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v5.0": {
       "Pets.Application/1.0.0": {
+        "dependencies": {
+          "Pets.Domain": "1.0.0"
+        },
         "runtime": {
           "Pets.Application.dll": {}
+        }
+      },
+      "Pets.Domain/1.0.0": {
+        "runtime": {
+          "Pets.Domain.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Pets.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Pets.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

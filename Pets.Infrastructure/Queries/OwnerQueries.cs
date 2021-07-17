@@ -1,3 +1,4 @@
+using System;
 using Pets.Domain.Entities.PetsContext;
 
 namespace Pets.Infrastructure.Queries
@@ -16,7 +17,7 @@ namespace Pets.Infrastructure.Queries
         public static string GetOwnerByEmail(string email)
         {
             _table = Map.ContextMapping.GetOwnerTable();
-            _query = $@"SELECT TOP 1 * FROM [Owner] WHERE [Email] = '12356875898'";
+            _query = $@"SELECT TOP 1 * FROM [Owner] WHERE [Email] = '{email}'";
             return _query;
         }
 
@@ -30,9 +31,9 @@ namespace Pets.Infrastructure.Queries
             '{owner.Name.FirstName}', 
             '{owner.Name.LastName}', 
             '{owner.Document.DocumentNumber}', 
-             {owner.Document.DocumentType}, 
+             {Convert.ToInt16(owner.Document.DocumentType)}, 
             '{owner.Email}', 
-            {owner.DateCreated.ToString("yyyy-MM-dd HH:mm:ss")}
+            '{owner.DateCreated.ToString("yyyy-dd-MM hh:mm:ss")}'
             )";
 
             return _query;

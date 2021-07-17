@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "Pets.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Pets.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Pets.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Pets.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Pets.Domain/Pets.Domain.csproj",
+      "msbuildProject": "../Pets.Domain/Pets.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "Pets.Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Diego Magalhães\\.nuget\\packages\\": {},
@@ -41,7 +60,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\VSCode\\Pets\\Pets.Domain\\Pets.Domain.csproj": {
+              "projectPath": "C:\\VSCode\\Pets\\Pets.Domain\\Pets.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

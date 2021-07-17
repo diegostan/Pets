@@ -24,8 +24,10 @@ VALUES
 '12356875898', 
 0, 
 'diego@stansdk.com', 
-GETDATE())
+'2021-07-07 08:38:25')
 GO
+
+
 
 SELECT *FROM [Owner]
 

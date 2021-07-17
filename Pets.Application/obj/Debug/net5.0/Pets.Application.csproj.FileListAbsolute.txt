@@ -10,3 +10,6 @@ C:\VSCode\Pets\Pets.Application\obj\Debug\net5.0\Pets.Application.csproj.CoreCom
 C:\VSCode\Pets\Pets.Application\obj\Debug\net5.0\Pets.Application.dll
 C:\VSCode\Pets\Pets.Application\obj\Debug\net5.0\ref\Pets.Application.dll
 C:\VSCode\Pets\Pets.Application\obj\Debug\net5.0\Pets.Application.pdb
+C:\VSCode\Pets\Pets.Application\bin\Debug\net5.0\Pets.Domain.dll
+C:\VSCode\Pets\Pets.Application\bin\Debug\net5.0\Pets.Domain.pdb
+C:\VSCode\Pets\Pets.Application\obj\Debug\net5.0\Pets.Application.csproj.CopyComplete
