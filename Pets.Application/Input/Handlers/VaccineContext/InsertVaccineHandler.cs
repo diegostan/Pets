@@ -19,7 +19,7 @@ namespace Pets.Application.Input.Handlers.VaccineContext
         public IResultBase Handle(InsertVaccineCommand command)
         {
             Result result;
-            var vaccine = new Vaccine(command.Description, command.CategortyId);
+            var vaccine = new Vaccine(command.Description, command.CategortyId, command.PetId);
             if (vaccine.Validate())
             {
                 _repository.InsertVaccine(vaccine);

@@ -7,14 +7,16 @@ namespace Pets.Domain.Entities.VaccineContext
 { 
     public class Vaccine : BaseEntity, IValidate
     {
-        public Vaccine(string description, Guid categoryId)
+        public Vaccine(string description, Guid categoryId, Guid petId)
         {
             Description = description;
             CategoryId = categoryId;
+            PetId = petId;
         }
 
         public string Description { get; private set; }
         public Guid CategoryId { get; private set; }
+        public Guid PetId { get; private set; }
 
         public bool Validate()
         {
@@ -26,6 +28,15 @@ namespace Pets.Domain.Entities.VaccineContext
                 this.AddNotification(new Notification(message: "A descrição deve conter entre 5 e 50 caracteres"
                     , propertyName: nameof(Description)));
 
+            if (GuidValidations.IsGuid(CategoryId))
+                this.AddNotification(new Notification(message: "O código do categoria de vacina não é válido"
+                , propertyName: nameof(CategoryId)));
+            
+            if (GuidValidations.IsGuid(PetId))
+                this.AddNotification(new Notification(message: "O código do animal não é válido"
+                , propertyName: nameof(PetId)));
+            
+            
             return (this.GetNotificationCount== 0? true : false);
         }
     }

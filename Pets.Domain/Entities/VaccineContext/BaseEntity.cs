@@ -11,12 +11,12 @@ namespace Pets.Domain.Entities.VaccineContext
         protected BaseEntity()
         {
             Id = Guid.NewGuid();
-            CreatedOn = DateTime.Now;
+            DateCreated = DateTime.Now;
             _notifications = new List<Notification>();
         }
 
         public Guid Id { get; private set; }
-        public DateTime CreatedOn { get; private set; }
+        public DateTime DateCreated { get; private set; }
         public IReadOnlyCollection<Notification> Notifications => _notifications;
         public int GetNotificationCount => _notifications.Count;
 

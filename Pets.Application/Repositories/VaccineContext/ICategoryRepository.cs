@@ -9,6 +9,7 @@ namespace Pets.Application.Repositories.VaccineContext
     public interface ICategoryRepository
     {
         void InsertCategory(Category category);
+        void DeleteCategory(Guid categoryId);
         Task<IEnumerable<CategoryDTO>> GetAllCategoriesAsync();
     }
 }

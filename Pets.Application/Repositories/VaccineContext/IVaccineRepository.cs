@@ -10,6 +10,7 @@ namespace Pets.Application.Repositories.VaccineContext
     {
         void InsertVaccine(Vaccine vaccine);
         Task<IEnumerable<VaccineDTO>> GetAllVaccinesByCategoryIdAsync(Guid id);
+        Task<IEnumerable<VaccineDTO>> GetAllVaccinesByPetIdAsync(Guid id);
 
     }
 }

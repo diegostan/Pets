@@ -19,7 +19,7 @@ namespace Pets.Application.Input.Handlers.PetsContext
         public IResultBase Handle(InsertPetCommand command)
         {
             Result result;
-            var pet = new Pet(command.Name, command.Age, command.Identifier);
+            var pet = new Pet(command.Name, command.Age, command.Identifier, command.OwnerId);
             if(pet.Validate())
             {
                 _repository.InsertPet(pet);

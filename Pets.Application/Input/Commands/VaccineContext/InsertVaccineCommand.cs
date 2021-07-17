@@ -6,6 +6,7 @@ namespace Pets.Application.Input.Commands.VaccineContext
     public class InsertVaccineCommand : ICommandBase
     {
         public Guid CategortyId { get; set; }
+        public Guid PetId { get; set; }
         public string Description { get; set; }
 
     }

@@ -8,6 +8,6 @@ namespace Pets.Application.Repositories
 {
     public interface IVaccineCategoryRepository
     {
-        Task<IEnumerable<VaccineCategoryRequest>> GetAllVaccinesByCategoryIdAsync(Guid categoryId);
+        Task<IEnumerable<VaccinePetsCategoryRequest>> GetAllVaccinesByCategoryIdAsync(Guid categoryId);
     }
 }
