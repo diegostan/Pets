@@ -7,7 +7,7 @@ using Pets.Application.Repositories.VaccineContext;
 using Pets.Domain.Entities.VaccineContext;
 using Pets.Domain.Notifications;
 
-namespace Pets.Application.Input.Handlers.PetsContext
+namespace Pets.Application.Input.Handlers.VaccineContext
 {
     public class InsertVaccineHandler : IHandlerBase<InsertVaccineCommand>
     {

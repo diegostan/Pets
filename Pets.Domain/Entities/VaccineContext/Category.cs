@@ -6,6 +6,10 @@ namespace Pets.Domain.Entities.VaccineContext
 {
     public class Category : BaseEntity, IValidate
     {
+        public Category(string description)
+        {
+            Description = description;
+        }
 
         public string Description { get; private set; }
 
