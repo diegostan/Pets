@@ -17,5 +17,10 @@ namespace Pets.Domain.Validations
         {
             _notifications.Add(notification);
         }
+
+        public bool IsValid()
+        {
+            return _notifications.Count == 0;
+        }
     }
 }

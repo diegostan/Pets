@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using Pets.Domain.Notifications;
 using Pets.Domain.Notifications.Interfaces;
+using Pets.Domain.Validations.Interfaces;
 
 namespace Pets.Domain.Entities.VaccineContext
 {
-    public abstract class BaseEntity 
+    public abstract class BaseEntity : IValidate
     {
         private List<Notification> _notifications;
         protected BaseEntity()
@@ -23,5 +24,8 @@ namespace Pets.Domain.Entities.VaccineContext
         {
             throw new NotImplementedException();
         }
+
+        public abstract bool Validate();
+        
     }
 }
