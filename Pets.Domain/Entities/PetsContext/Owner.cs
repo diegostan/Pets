@@ -27,7 +27,8 @@ namespace Pets.Domain.Entities.PetsContext
            .LastNameIsNotNull("O segundo nome não pode estar em branco", "LastName")
            .FirstIsLenghtOk(20, 5, "O primeiro nome deve ter entre 3 caracteres e 20 caracteres", "FirstName")
            .LastIsLenghtOk(20, 5, "O segundo nome deve ter entre 3 caracteres e 20 caracteres", "LastName")
-           .EmailIsValid(this.Email, "O email não é válido", "Email");
+           .EmailIsValid(this.Email, "O email não é válido", "Email")
+           .DocumentValidate(this.Document, "O documento não é válido", "Document");
            
 
            this.SetNotificationList(nameValidation.Notifications as List<Notification>);

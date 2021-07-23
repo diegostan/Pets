@@ -17,12 +17,12 @@ namespace Pets.Application.Input.Handlers.VaccineContext
         public IResultBase Handle(DeleteCategoryCommand command)
         {
             Result result;
-            if (GuidValidations.IsGuid(command.CategoryId))
-            {
-                _repository.DeleteCategory(command.CategoryId);
-                result = new Result(200, "Categoria apagada com sucesso", true);
-                return result;
-            }
+            // if (GuidValidations.IsGuid(command.CategoryId))
+            // {
+            //     _repository.DeleteCategory(command.CategoryId);
+            //     result = new Result(200, "Categoria apagada com sucesso", true);
+            //     return result;
+            // }
 
             result = new Result(400, "Categoria inválida", false);
             return result;

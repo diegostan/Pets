@@ -11,7 +11,6 @@ namespace Pets.Domain.Validations
         {
             Name = name;           
         }
-
         public Name Name { get; private set; }
 
         public ContractValidations<T> FirstNameIsNotNull(string message, string propertyName)

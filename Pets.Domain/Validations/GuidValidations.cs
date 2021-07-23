@@ -1,12 +1,16 @@
 using System;
+using Pets.Domain.Notifications;
 
 namespace Pets.Domain.Validations
 {
-    public static class GuidValidations
+    public partial class ContractValidations<T> : NotificationBase
     {
-        public static bool IsGuid(object guid)
+        public ContractValidations<T> IsGuid(object guid, string message, string propertyName)
         {
-            return (guid is Guid ? true : false);
+            if (guid! is Guid)
+                AddNotification(new Notification(message, propertyName));
+
+            return this;
         }
     }
 }
