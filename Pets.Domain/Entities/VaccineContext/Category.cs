@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using Pets.Domain.Notifications;
 using Pets.Domain.Validations;
 using Pets.Domain.Validations.Interfaces;
 
 namespace Pets.Domain.Entities.VaccineContext
 {
-    public class Category : BaseEntity, IValidate
+    public class Category : BaseEntity, IValidate, IContract
     {
         public Category(string description)
         {
@@ -15,16 +16,13 @@ namespace Pets.Domain.Entities.VaccineContext
 
         public bool Validate()
         {
-            // if (DescriptionValidations.DescriptionIsNotNull(Description))
-            //     this.AddNotification(new Notification(message: "A descrição não pode estar em branco"
-            //     , propertyName: nameof(Description)));
+           var contractValidation =
+           new ContractValidations<Category>()
+           .DescriptionIsOk(this.Description, 50, 15, "A descrição de categoria deve conter entre 15 e 50 caracteres", "Description");           
 
-            // if (DescriptionValidations.DescriptionLenghtOk(Description, 5, 50))
-            //     this.AddNotification(new Notification(message: "A descrição deve conter entre 5 e 50 caracteres"
-            //         , propertyName: nameof(Description)));
+            this.SetNotificationList(contractValidation.Notifications as List<Notification>);
+            return (contractValidation.Notifications.Count == 0 ? true : false);
             
-
-            return (this.GetNotificationCount== 0? true : false);
         }
     }
 }

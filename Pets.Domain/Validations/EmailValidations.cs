@@ -3,7 +3,7 @@ using Pets.Domain.Notifications;
 
 namespace Pets.Domain.Validations
 {
-    public partial class ContractValidations<T> : NotificationBase
+    public partial class ContractValidations<T> 
     {
         public ContractValidations<T> EmailIsValid(string email, string message, string propertyName)
         {
@@ -11,6 +11,7 @@ namespace Pets.Domain.Validations
                 AddNotification(new Notification(message, propertyName));
             
             return this;
+            
         }
     }
 }

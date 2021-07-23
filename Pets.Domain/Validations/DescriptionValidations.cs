@@ -1,23 +1,16 @@
-using Pets.Domain.Validations.Interfaces;
+using Pets.Domain.Notifications;
 
 namespace Pets.Domain.Validations
 {
-    public static class DescriptionValidations
+    public partial class ContractValidations<T> 
     {
-         public static bool DescriptionIsNotNull(string description)
-        {
-            if (string.IsNullOrEmpty(description))
-                return true;
-                                    
-            return false;
-        }
 
-        public static bool DescriptionLenghtOk(string description, short minLenght, short maxLenght)
+        public ContractValidations<T> DescriptionIsOk(string description, short maxLength, short minLength, string message, string propertyName)
         {
-            if ((description.Length < minLenght) || (description.Length > maxLenght))
-                return true;
-            
-            return false; 
+            if (string.IsNullOrEmpty(description) || (description.Length < minLength) || (description.Length > maxLength))
+                AddNotification(new Notification(message, propertyName));
+
+            return this;
         }
     }
 }

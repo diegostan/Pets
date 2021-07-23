@@ -1,12 +1,14 @@
 using System.Collections.Generic;
+using Pets.Domain.Notifications;
 using Pets.Domain.Notifications.Interfaces;
+using Pets.Domain.Validations.Interfaces;
 
-namespace Pets.Domain.Notifications
+namespace Pets.Domain.Validations
 {
-    public class NotificationBase : INotification
+    public partial class ContractValidations<T> where T : IContract
     {
         private List<Notification> _notifications;
-        public NotificationBase()
+        public ContractValidations()
         {
             _notifications = new List<Notification>();
         }

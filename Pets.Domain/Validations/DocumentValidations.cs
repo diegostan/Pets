@@ -3,9 +3,9 @@ using Pets.Domain.ValueObjects;
 
 namespace Pets.Domain.Validations
 {
-    public partial class ContractValidations<T> : NotificationBase
+    public partial class ContractValidations<T> 
     {
-        public ContractValidations<T> DocumentValidate(Document document, string message, string propertyName)
+        public ContractValidations<T> DocumentIsValid(Document document, string message, string propertyName)
         {
             if (document.DocumentType == Enums.EDocumentType.CPF)
                 if (!IsCpf(document.DocumentNumber))
@@ -17,7 +17,7 @@ namespace Pets.Domain.Validations
 			
 			return this;
         }
-        public bool IsCnpj(string cnpj)
+        private bool IsCnpj(string cnpj)
         {
             int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -52,7 +52,7 @@ namespace Pets.Domain.Validations
             return cnpj.EndsWith(digito);
         }
 
-        public bool IsCpf(string cpf)
+        private bool IsCpf(string cpf)
         {
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };

@@ -3,7 +3,7 @@ using Pets.Domain.Notifications;
 
 namespace Pets.Domain.Validations
 {
-    public partial class ContractValidations<T> : NotificationBase
+    public partial class ContractValidations<T> 
     {
         public ContractValidations<T> IsGuid(object guid, string message, string propertyName)
         {
