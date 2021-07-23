@@ -32,9 +32,9 @@ namespace Pets.API.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("PostOwner")]
-        public Result PostOwner([FromServices] InsertOwnerHandler handle, InsertOwnerCommand command)
+        public Result PostOwner([FromServices] InsertOwnerHandler handler, InsertOwnerCommand command)
         {            
-            return (Result)handle.Handle(command);
+            return (Result)handler.Handle(command);
         }
     }
 }

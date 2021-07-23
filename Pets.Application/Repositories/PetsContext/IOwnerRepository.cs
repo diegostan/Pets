@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Pets.Application.Output.DTO;
 using Pets.Domain.Entities.PetsContext;
+using Pets.Application.Output.Results;
 
 namespace Pets.Application.Repositories.PetsContext
 {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Pets.Application.Input.Commands.PetsContext;
 using Pets.Application.Input.Handlers.Interfaces;
@@ -22,11 +23,19 @@ namespace Pets.Application.Input.Handlers.PetsContext
             Result result;
             if (owner.Validate())
             {
-                _repository.InsertOwner(owner);
-                result = new Result(200, $"Dono {owner.Name.FirstName} inserido com sucesso", true);
-                return result;
+                try
+                {
+                    _repository.InsertOwner(owner);
+                    result = new Result(200, $"Dono {owner.Name.FirstName} inserido com sucesso", true);
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    result = new Result(500, $"Falha interna do servidor, detalhes: {ex.Message}", false);
+                }
+                
             }
-            result = new Result(500, $"Falha ao inserir o dono {owner.Name.FirstName} na base de dados", false);
+            result = new Result(500, $"Falha ao inserir o dono {owner.Name.FirstName} na base de dados, verifique os campos e tente novamente.", false);
             result.SetNotifications(owner.Notifications as List<Notification>);
             return result;
         }

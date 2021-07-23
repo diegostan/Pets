@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Pets.Application.Input.Commands.PetsContext;
 using Pets.Application.Input.Handlers.Interfaces;
@@ -22,9 +23,17 @@ namespace Pets.Application.Input.Handlers.PetsContext
             var pet = new Pet(command.Name, command.Age, command.Identifier, command.OwnerId);
             if(pet.Validate())
             {
-                _repository.InsertPet(pet);
-                result = new Result(200, "Pet inserido com sucesso", true);
-                return result;
+                 try
+                {
+                    _repository.InsertPet(pet);
+                    result = new Result(200, "Pet inserido com sucesso", true);
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    result = new Result(500, $"Falha interna do servidor, detalhes: {ex.Message}", false);
+                }
+                                
             }
             result = new Result(500, "Falha ao inserir o pet", false);
             result.SetNotifications(pet.Notifications as List<Notification>);

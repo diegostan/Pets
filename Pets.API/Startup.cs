@@ -37,9 +37,12 @@ namespace Pets.API
 
             services.AddScoped<AbsDBFactory, SqlFactory>();
             services.AddTransient<IOwnerRepository, OwnerRepository>();
+            services.AddTransient<IPetRepository, PetRepository>();
 
             services.AddTransient<InsertOwnerHandler, InsertOwnerHandler>();
             services.AddTransient<InsertOwnerCommand, InsertOwnerCommand>();
+            services.AddTransient<InsertPetHandler, InsertPetHandler>();
+            services.AddTransient<InsertPetCommand, InsertPetCommand>();
 
             services.AddSwaggerGen(c =>
             {

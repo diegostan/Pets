@@ -3,6 +3,7 @@ using System.Data;
 using System.Threading.Tasks;
 using Dapper;
 using Pets.Application.Output.DTO;
+using Pets.Application.Output.Results;
 using Pets.Application.Repositories.PetsContext;
 using Pets.Domain.Entities.PetsContext;
 using Pets.Infrastructure.AbsFactory;
@@ -26,12 +27,12 @@ namespace Pets.Infrastructure.Repositories.PetsContext
         }
 
         public async Task<OwnerDTO> GetOwnerByEmailAsync(string email)
-        {
+        {            
             using (_connection)
             {
                 var owner = await _connection.QueryFirstOrDefaultAsync<OwnerDTO>(Queries.OwnerQueries.GetOwnerByEmail(email));
                 return owner;
-            }
+            }            
         }
 
         public void InsertOwner(Owner owner)
