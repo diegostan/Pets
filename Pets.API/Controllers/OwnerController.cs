@@ -26,14 +26,14 @@ namespace Pets.API.Controllers
         [Route("GetOwnerByEmail")]
         public async Task<OwnerDTO> GetOwnerByEmail([FromServices] IOwnerRepository repository, string email)
         {
-            return await repository.GetOwnerByEmailAsync(email);
+            return await repository.GetOwnerByEmailAsync(email);            
         }
 
         [AllowAnonymous]
         [HttpPost]
         [Route("PostOwner")]
         public Result PostOwner([FromServices] InsertOwnerHandler handle, InsertOwnerCommand command)
-        {
+        {            
             return (Result)handle.Handle(command);
         }
     }

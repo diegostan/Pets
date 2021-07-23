@@ -1,39 +1,50 @@
+using System.Collections.Generic;
+using Pets.Domain.Notifications;
+using Pets.Domain.Notifications.Interfaces;
 using Pets.Domain.ValueObjects;
 
 namespace Pets.Domain.Validations
 {
-    public static class NameValidations
-    {
-        public static bool FirstNameIsNotNull(Name name)
+    public partial class ContractValidations<T> : NotificationBase
+    {        
+        public ContractValidations(Name name)
         {
-            if (string.IsNullOrEmpty(name.FirstName))
-                return true;
-
-            return false;
+            Name = name;           
         }
 
-        public static bool LastNameIsNotNull(Name name)
+        public Name Name { get; private set; }
+
+        public ContractValidations<T> FirstNameIsNotNull(string message, string propertyName)
         {
-            if (string.IsNullOrEmpty(name.LastName))
-                return true;
-                                    
-            return false;
+            if (string.IsNullOrEmpty(Name.FirstName))
+                AddNotification(new Notification(message, propertyName));
+
+            return this;
         }
 
-        public static bool FirstIsLenghtOk(Name name, short minLenght, short maxLenght)
+        public ContractValidations<T> LastNameIsNotNull(string message, string propertyName)
         {
-            if ((name.FirstName.Length < minLenght) || (name.FirstName.Length > maxLenght))
-                return true;
-            
-            return false; 
+            if (string.IsNullOrEmpty(Name.LastName))
+                AddNotification(new Notification(message, propertyName));
+
+            return this;
         }
 
-         public static bool LastIsLenghtOk(Name name, short minLenght, short maxLenght)
+        public ContractValidations<T> FirstIsLenghtOk(short maxLength, short minLength, string message, string propertyName)
         {
-            if ((name.LastName.Length < minLenght) || (name.LastName.Length > maxLenght))
-                return true;
-            
-            return false; 
-        } 
+            if ((Name.FirstName.Length < minLength) || (Name.FirstName.Length > maxLength))
+                AddNotification(new Notification(message, propertyName));
+
+            return this;
+        }
+
+        public ContractValidations<T> LastIsLenghtOk(short maxLength, short minLength, string message, string propertyName)
+        {
+            if ((Name.LastName.Length < minLength) || (Name.LastName.Length > maxLength))
+                AddNotification(new Notification(message, propertyName));
+
+            return this;
+        }
+        
     }
 }

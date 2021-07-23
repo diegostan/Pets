@@ -1,3 +1,5 @@
+using Pets.Domain.Validations.Interfaces;
+
 namespace Pets.Domain.Validations
 {
     public static class DescriptionValidations

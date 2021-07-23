@@ -1,6 +1,6 @@
 namespace Pets.Domain.Validations
 {
-    public class DocumentValidations
+    public static class DocumentValidations
     {
         public static bool IsCnpj(string cnpj)
 		{

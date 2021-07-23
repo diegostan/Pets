@@ -5,7 +5,7 @@ using Pets.Domain.Notifications.Interfaces;
 
 namespace Pets.Domain.Entities.VaccineContext
 {
-    public abstract class BaseEntity : INotification
+    public abstract class BaseEntity 
     {
         private List<Notification> _notifications;
         protected BaseEntity()
@@ -20,7 +20,7 @@ namespace Pets.Domain.Entities.VaccineContext
         public IReadOnlyCollection<Notification> Notifications => _notifications;
         public int GetNotificationCount => _notifications.Count;
 
-        public void AddNotification(Notification notification)
+        public void SetNotificationList(List<Notification> notifications)
         {
             throw new NotImplementedException();
         }

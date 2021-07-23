@@ -15,13 +15,14 @@ namespace Pets.Domain.Entities.VaccineContext
 
         public bool Validate()
         {
-            if (DescriptionValidations.DescriptionIsNotNull(Description))
-                this.AddNotification(new Notification(message: "A descrição não pode estar em branco"
-                , propertyName: nameof(Description)));
+            // if (DescriptionValidations.DescriptionIsNotNull(Description))
+            //     this.AddNotification(new Notification(message: "A descrição não pode estar em branco"
+            //     , propertyName: nameof(Description)));
 
-            if (DescriptionValidations.DescriptionLenghtOk(Description, 5, 50))
-                this.AddNotification(new Notification(message: "A descrição deve conter entre 5 e 50 caracteres"
-                    , propertyName: nameof(Description)));
+            // if (DescriptionValidations.DescriptionLenghtOk(Description, 5, 50))
+            //     this.AddNotification(new Notification(message: "A descrição deve conter entre 5 e 50 caracteres"
+            //         , propertyName: nameof(Description)));
+            
 
             return (this.GetNotificationCount== 0? true : false);
         }

@@ -6,7 +6,7 @@ using Pets.Domain.ValueObjects;
 
 namespace Pets.Domain.Entities.PetsContext
 {
-    public abstract class BaseEntity : INotification
+    public abstract class BaseEntity 
     {
         private List<Notification> _notifications;
         protected BaseEntity(Name name)
@@ -23,11 +23,9 @@ namespace Pets.Domain.Entities.PetsContext
         public IReadOnlyCollection<Notification> Notifications => _notifications;
         public int GetNotificationCount => _notifications.Count;
 
-        public void AddNotification(Notification notification)
+        public void SetNotificationList(List<Notification> notifications)
         {
-            _notifications.Add(notification);
+            _notifications = notifications;
         }
-
-
     }
 }
