@@ -21,18 +21,16 @@ namespace Pets.Domain.Entities.PetsContext
 
         public bool Validate()
         {
-           var nameValidation = 
-           new ContractValidations<Owner>(Name)
-           .FirstNameIsNotNull("O primeiro nome não pode estar em branco", "FirstName")
-           .LastNameIsNotNull("O segundo nome não pode estar em branco", "LastName")
-           .FirstIsLenghtOk(20, 5, "O primeiro nome deve ter entre 3 caracteres e 20 caracteres", "FirstName")
-           .LastIsLenghtOk(20, 5, "O segundo nome deve ter entre 3 caracteres e 20 caracteres", "LastName")
+           var contractValidation = 
+           new ContractValidations<Owner>()                      
+           .FirstIsLenghtOk(this.Name, 20, 5, "O primeiro nome deve ter entre 5 caracteres e 20 caracteres", "FirstName")
+           .LastIsLenghtOk(this.Name ,20, 5, "O segundo nome deve ter entre 5 caracteres e 20 caracteres", "LastName")
            .EmailIsValid(this.Email, "O email não é válido", "Email")
            .DocumentValidate(this.Document, "O documento não é válido", "Document");
            
 
-           this.SetNotificationList(nameValidation.Notifications as List<Notification>);
-           return (nameValidation.Notifications.Count == 0? true : false); 
+           this.SetNotificationList(contractValidation.Notifications as List<Notification>);
+           return (contractValidation.Notifications.Count == 0? true : false); 
         }        
     }
     

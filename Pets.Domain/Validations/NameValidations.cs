@@ -6,44 +6,23 @@ using Pets.Domain.ValueObjects;
 namespace Pets.Domain.Validations
 {
     public partial class ContractValidations<T> : NotificationBase
-    {        
-        public ContractValidations(Name name)
-        {
-            Name = name;           
-        }
-        public Name Name { get; private set; }
+    {
 
-        public ContractValidations<T> FirstNameIsNotNull(string message, string propertyName)
+        public ContractValidations<T> FirstIsLenghtOk(Name name, short maxLength, short minLength, string message, string propertyName)
         {
-            if (string.IsNullOrEmpty(Name.FirstName))
+            if (string.IsNullOrEmpty(name.FirstName) || (name.FirstName.Length < minLength) || (name.FirstName.Length > maxLength))
                 AddNotification(new Notification(message, propertyName));
 
             return this;
         }
 
-        public ContractValidations<T> LastNameIsNotNull(string message, string propertyName)
+        public ContractValidations<T> LastIsLenghtOk(Name name, short maxLength, short minLength, string message, string propertyName)
         {
-            if (string.IsNullOrEmpty(Name.LastName))
+            if (string.IsNullOrEmpty(name.LastName) || (name.LastName.Length < minLength) || (name.LastName.Length > maxLength))
                 AddNotification(new Notification(message, propertyName));
 
             return this;
         }
 
-        public ContractValidations<T> FirstIsLenghtOk(short maxLength, short minLength, string message, string propertyName)
-        {
-            if ((Name.FirstName.Length < minLength) || (Name.FirstName.Length > maxLength))
-                AddNotification(new Notification(message, propertyName));
-
-            return this;
-        }
-
-        public ContractValidations<T> LastIsLenghtOk(short maxLength, short minLength, string message, string propertyName)
-        {
-            if ((Name.LastName.Length < minLength) || (Name.LastName.Length > maxLength))
-                AddNotification(new Notification(message, propertyName));
-
-            return this;
-        }
-        
     }
 }

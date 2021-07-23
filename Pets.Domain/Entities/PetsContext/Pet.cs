@@ -24,7 +24,13 @@ namespace Pets.Domain.Entities.PetsContext
 
         public bool Validate()
         {
-            return false;
+            var contractValidation = 
+           new ContractValidations<Owner>()                      
+           .FirstIsLenghtOk(this.Name, 20, 5, "O primeiro nome deve ter entre 5 caracteres e 20 caracteres", "FirstName")
+           .LastIsLenghtOk(this.Name ,20, 5, "O segundo nome deve ter entre 5 caracteres e 20 caracteres", "LastName");                     
+
+           this.SetNotificationList(contractValidation.Notifications as List<Notification>);
+           return (contractValidation.Notifications.Count == 0? true : false); 
         }
     }
 }
