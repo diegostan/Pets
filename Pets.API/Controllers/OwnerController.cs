@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Pets.Application.Input.Commands.PetsContext;
 using Pets.Application.Input.Handlers.PetsContext;
 using Pets.Application.Output.DTO;
+using Pets.Application.Output.Requests.PetsRequests;
 using Pets.Application.Output.Results;
 using Pets.Application.Repositories.PetsContext;
 
@@ -16,7 +17,7 @@ namespace Pets.API.Controllers
         [AllowAnonymous]
         [HttpGet]
         [Route("GetOwnerByDocument")]
-        public async Task<OwnerDTO> GetOwnerByDocument([FromServices] IOwnerRepository repository, string document)
+        public async Task<OwnerRequest> GetOwnerByDocument([FromServices] IOwnerRepository repository, string document)
         {
             return await repository.GetOwnerByDocumentAsync(document);
         }
@@ -24,7 +25,7 @@ namespace Pets.API.Controllers
         [AllowAnonymous]
         [HttpGet]
         [Route("GetOwnerByEmail")]
-        public async Task<OwnerDTO> GetOwnerByEmail([FromServices] IOwnerRepository repository, string email)
+        public async Task<OwnerRequest> GetOwnerByEmail([FromServices] IOwnerRepository repository, string email)
         {
             return await repository.GetOwnerByEmailAsync(email);            
         }

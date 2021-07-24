@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Pets.Application.Input.Commands.PetsContext;
 using Pets.Application.Input.Handlers.PetsContext;
 using Pets.Application.Output.DTO;
+using Pets.Application.Output.Requests.PetsRequests;
 using Pets.Application.Output.Results;
 using Pets.Application.Repositories.PetsContext;
 
@@ -18,7 +19,7 @@ namespace Pets.API.Controllers
         [AllowAnonymous]
         [HttpGet]
         [Route("GetPetsByOwnerId")]
-        public async Task<IEnumerable<PetDTO>> GetPetsByOwnerId([FromServices] IPetRepository repository, Guid ownerId)
+        public async Task<PetRequest> GetPetsByOwnerId([FromServices] IPetRepository repository, Guid ownerId)
         {
             return await repository.GetPetsByOwnerIdAsync(ownerId);
         }
