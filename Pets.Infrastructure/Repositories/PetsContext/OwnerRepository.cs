@@ -19,6 +19,25 @@ namespace Pets.Infrastructure.Repositories.PetsContext
         {
             _connection = factory.CreateConnection();
         }
+
+        public Result DeleteOwnerById(Guid ownerId)
+        {
+            try
+            {
+                using (_connection)
+                {
+                    if (_connection.Execute(Queries.OwnerQueries.DeleteOwnerById(ownerId)) > 0)
+                      return new Result(200, "Dono apagado com sucesso", true);
+
+                    return new Result(404, "Não foram encontrados donos com esse ID", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result(500, $"Erro interno ao tentar apagar dono. Mais detalhes: {ex.Message}", false);
+            }
+        }
+
         public async Task<OwnerRequest> GetOwnerByDocumentAsync(string document)
         {
             var ownerRequest = new OwnerRequest();
@@ -37,15 +56,14 @@ namespace Pets.Infrastructure.Repositories.PetsContext
 
             }
 
-            if(ownerRequest.Owner.DocumentNumber == null)
-                    ownerRequest.Result = new Result(404, $"Não foram encontrados donos com esse numero de documento.", true);
+            if (ownerRequest.Owner.DocumentNumber == null)
+                ownerRequest.Result = new Result(404, $"Não foram encontrados donos com esse numero de documento.", true);
 
             return ownerRequest;
         }
 
         public async Task<OwnerRequest> GetOwnerByEmailAsync(string email)
         {
-            // Camada de repositorio não tem a responsabilidade de tratar Exceptions------------------------------------------------------------------------------------------------------------------------
             var ownerRequest = new OwnerRequest();
 
             using (_connection)
@@ -62,8 +80,8 @@ namespace Pets.Infrastructure.Repositories.PetsContext
 
             }
 
-            if(ownerRequest.Owner.DocumentNumber == null)
-                    ownerRequest.Result = new Result(404, $"Não foram encontrados donos com esse email.", true);
+            if (ownerRequest.Owner.DocumentNumber == null)
+                ownerRequest.Result = new Result(404, $"Não foram encontrados donos com esse email.", true);
 
             return ownerRequest;
         }

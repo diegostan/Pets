@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +37,14 @@ namespace Pets.API.Controllers
         public Result PostOwner([FromServices] InsertOwnerHandler handler, InsertOwnerCommand command)
         {            
             return (Result)handler.Handle(command);
+        }
+
+        [AllowAnonymous]
+        [HttpDelete]
+        [Route("DeleteOwner")]
+        public Result DeleteOwner([FromServices] IOwnerRepository repository, Guid ownerId)
+        {
+            return repository.DeleteOwnerById(ownerId);
         }
     }
 }

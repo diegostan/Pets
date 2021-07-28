@@ -1,6 +1,8 @@
 using System.Threading.Tasks;
 using Pets.Domain.Entities.PetsContext;
 using Pets.Application.Output.Requests.PetsRequests;
+using System;
+using Pets.Application.Output.Results;
 
 namespace Pets.Application.Repositories.PetsContext
 {
@@ -9,6 +11,7 @@ namespace Pets.Application.Repositories.PetsContext
         void InsertOwner(Owner owner);
         Task<OwnerRequest> GetOwnerByDocumentAsync(string document);
         Task<OwnerRequest> GetOwnerByEmailAsync(string email);
+        Result DeleteOwnerById(Guid ownerId);
         
     }
 }

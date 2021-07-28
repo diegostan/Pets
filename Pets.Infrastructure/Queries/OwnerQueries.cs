@@ -38,5 +38,13 @@ namespace Pets.Infrastructure.Queries
 
             return _query;
         }
+
+        public static string DeleteOwnerById(Guid ownerId)
+        {
+            _table = Map.ContextMapping.GetOwnerTable();
+            _query = $@"DELETE {_table} WHERE [Id] = '{ownerId}'";
+
+            return _query;
+        }
     }
 }
