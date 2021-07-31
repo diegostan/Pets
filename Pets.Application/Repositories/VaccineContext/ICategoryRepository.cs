@@ -1,4 +1,4 @@
-using Pets.Application.Output.DTO;
+using Pets.Application.Output.Requests.VaccineRequest;
 using Pets.Domain.Entities.VaccineContext;
 using System;
 using System.Collections.Generic;
@@ -10,6 +10,6 @@ namespace Pets.Application.Repositories.VaccineContext
     {
         void InsertCategory(Category category);
         void DeleteCategory(Guid categoryId);
-        Task<IEnumerable<CategoryDTO>> GetAllCategoriesAsync();
+        Task<CategoryRequest> GetAllCategoriesAsync();
     }
 }

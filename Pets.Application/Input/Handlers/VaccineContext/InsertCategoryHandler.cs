@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Pets.Application.Input.Commands.VaccineContext;
 using Pets.Application.Input.Handlers.Interfaces;
 using Pets.Application.Output.Results;
@@ -20,14 +22,24 @@ namespace Pets.Application.Input.Handlers.VaccineContext
         {
             Result result;
             var category = new Category(command.Description);
+
             if (category.Validate())
             {
-                _repository.InsertCategory(category);
-                result = new Result(200, "Categoria inserida com sucesso", true);
-                return result;
+                try
+                {
+                    _repository.InsertCategory(category);
+                    result = new Result(200, "Categoria inserida com sucesso", true);
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    result = new Result(500, $"Falha ao cadastrar categoria. Mais detalhes: {ex.Message}", false);
+                }
             }
-            result = new Result(500, "Falha ao cadastrar categoria", false);
+
+            result = new Result(400, "Requisição inválida! Verifique os campos e tente novamente", true);
             result.SetNotifications(category.Notifications as List<Notification>);
+
             return result;
         }
     }

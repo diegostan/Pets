@@ -8,6 +8,8 @@ using Pets.Domain.Entities.VaccineContext;
 using Pets.Infrastructure.AbsFactory;
 using Dapper;
 using Pets.Application.Output.Results;
+using Pets.Application.Output.Requests.VaccineRequest;
+using System.Linq;
 
 namespace Pets.Infrastructure.Repositories.VaccineContext
 {
@@ -27,20 +29,31 @@ namespace Pets.Infrastructure.Repositories.VaccineContext
             }
         }
 
-        public async Task<IEnumerable<CategoryDTO>> GetAllCategoriesAsync()
+        public async Task<CategoryRequest> GetAllCategoriesAsync()
         {
-            using (_connection)
+            var categoryRequest = new CategoryRequest();
+            try
             {
-                var request = await _connection.QueryAsync<CategoryDTO>(Queries.CategoryQueries.GetAllCategories());
-                return request;
+                using (_connection)
+                {
+                    categoryRequest.Categories = await _connection.QueryAsync<CategoryDTO>(Queries.CategoryQueries.GetAllCategories()) as List<CategoryDTO>;
+                    categoryRequest.Result = (categoryRequest.Categories as List<CategoryDTO>).Count !=0 ? new Result(200, "Requisição realizada com sucesso", true)
+                    : new Result(404, "Nenhuma categoria encontrada", false);
+                    return categoryRequest;
+                }
             }
+            catch (Exception ex)
+            {
+                categoryRequest.Result = new Result(500, $"Erro interno do servidor, detalhes: {ex.Message}", false);
+            }
+            return categoryRequest;
         }
 
         public void InsertCategory(Category category)
         {
             using (_connection)
             {
-                _connection.Execute(Queries.CategoryQueries.InsertCategory(category));
+                 _connection.Execute(Queries.CategoryQueries.InsertCategory(category));
             }
         }
     }

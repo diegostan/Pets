@@ -25,7 +25,7 @@ namespace Pets.Infrastructure.Queries
             VALUES 
             ('{category.Id}', 
             '{category.Description}', 
-            '{category.DateCreated.ToString("yyyy-MM-dd HH-mm-ss")}')
+            '{category.DateCreated.ToString("yyyy-dd-MM HH:mm:ss")}')
             ";
 
             return _query;

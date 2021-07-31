@@ -22,7 +22,7 @@ namespace Pets.Domain.Entities.VaccineContext
 
         public void SetNotificationList(List<Notification> notifications)
         {
-            throw new NotImplementedException();
+            _notifications = notifications;
         }
 
         public abstract bool Validate();

@@ -27,7 +27,7 @@ namespace Pets.Infrastructure.Repositories.PetsContext
                 using (_connection)
                 {
                     if (_connection.Execute(Queries.OwnerQueries.DeleteOwnerById(ownerId)) > 0)
-                      return new Result(200, "Dono apagado com sucesso", true);
+                        return new Result(200, "Dono apagado com sucesso", true);
 
                     return new Result(404, "Não foram encontrados donos com esse ID", true);
                 }
@@ -47,18 +47,14 @@ namespace Pets.Infrastructure.Repositories.PetsContext
                 try
                 {
                     ownerRequest.Owner = await _connection.QueryFirstOrDefaultAsync<OwnerDTO>(Queries.OwnerQueries.GetOwnerByDocument(document));
-                    ownerRequest.Result = new Result(200, $"Requisição realizada com sucesso", true);
+                    ownerRequest.Result = (ownerRequest.Owner.DocumentNumber != null ? new Result(200, $"Requisição realizada com sucesso", true)
+                    : new Result(404, $"Não foram encontrados donos com esse numero de documento.", true));
                 }
                 catch (Exception ex)
                 {
                     ownerRequest.Result = new Result(500, $"Erro interno do servidor, detalhes: {ex.Message}", false);
                 }
-
             }
-
-            if (ownerRequest.Owner.DocumentNumber == null)
-                ownerRequest.Result = new Result(404, $"Não foram encontrados donos com esse numero de documento.", true);
-
             return ownerRequest;
         }
 
@@ -71,18 +67,15 @@ namespace Pets.Infrastructure.Repositories.PetsContext
                 try
                 {
                     ownerRequest.Owner = await _connection.QueryFirstOrDefaultAsync<OwnerDTO>(Queries.OwnerQueries.GetOwnerByEmail(email));
-                    ownerRequest.Result = new Result(200, $"Requisição realizada com sucesso", true);
+                     ownerRequest.Result = (ownerRequest.Owner.DocumentNumber != null ? new Result(200, $"Requisição realizada com sucesso", true)
+                    : new Result(404, $"Não foram encontrados donos com esse e-mail.", true));
+                    
                 }
                 catch (Exception ex)
                 {
                     ownerRequest.Result = new Result(500, $"Erro interno do servidor, detalhes: {ex.Message}", false);
                 }
-
             }
-
-            if (ownerRequest.Owner.DocumentNumber == null)
-                ownerRequest.Result = new Result(404, $"Não foram encontrados donos com esse email.", true);
-
             return ownerRequest;
         }
 

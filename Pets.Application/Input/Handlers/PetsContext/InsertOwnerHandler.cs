@@ -32,11 +32,10 @@ namespace Pets.Application.Input.Handlers.PetsContext
                 catch (Exception ex)
                 {
                     result = new Result(500, $"Falha interna do servidor, detalhes: {ex.Message}", false);
-                }
-                
-            }
-            result = new Result(500, $"Falha ao inserir o dono {owner.Name.FirstName} na base de dados, verifique os campos e tente novamente.", false);
-            result.SetNotifications(owner.Notifications as List<Notification>);
+                }                
+            }            
+            result = new Result(400, $"Falha ao inserir o dono {owner.Name.FirstName} na base de dados, verifique os campos e tente novamente.", false);
+            result.SetNotifications(owner.Notifications as List<Notification>);            
             return result;
         }
     }

@@ -28,18 +28,14 @@ namespace Pets.Infrastructure.Repositories.PetsContext
                 try
                 {
                     petRequest.Pets = await _connection.QueryAsync<PetDTO>(Queries.PetQueries.GetPetsByOwnerId(id));
-                    petRequest.Result = new Result(200, $"Requisição realizada com sucesso", true);
+                    petRequest.Result = ((petRequest.Pets as List<PetDTO>).Count != 0 ? new Result(200, $"Requisição realizada com sucesso", true) 
+                    :new Result(404, $"Não foram encontrados pets vinculados a esse dono.", true));
                 }
                 catch (Exception ex)
                 {
                     petRequest.Result = new Result(500, $"Erro interno do servidor, detalhes: {ex.Message}", false);
                 }
-
             }
-
-            if((petRequest.Pets as List<PetDTO>).Count == 0)
-                    petRequest.Result = new Result(404, $"Não foram encontrados pets vinculados a esse dono.", true);
-
             return petRequest;
         }
 

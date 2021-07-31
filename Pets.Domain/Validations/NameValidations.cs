@@ -10,7 +10,7 @@ namespace Pets.Domain.Validations
 
         public ContractValidations<T> FirstNameIsOk(Name name, short maxLength, short minLength, string message, string propertyName)
         {
-            if (string.IsNullOrEmpty(name.FirstName) || (name.FirstName.Length < minLength) || (name.FirstName.Length > maxLength))
+            if (string.IsNullOrEmpty(name.FirstName) || (name.FirstName.Length <= minLength) || (name.FirstName.Length >= maxLength))
                 AddNotification(new Notification(message, propertyName));
 
             return this;

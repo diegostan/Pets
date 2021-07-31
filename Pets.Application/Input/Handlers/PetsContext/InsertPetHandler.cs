@@ -35,7 +35,7 @@ namespace Pets.Application.Input.Handlers.PetsContext
                 }
                                 
             }
-            result = new Result(500, "Falha ao inserir o pet", false);
+            result = new Result(400, "Falha ao inserir o pet. Verifique os campos e tente novamente", false);
             result.SetNotifications(pet.Notifications as List<Notification>);
             return result;
         }
