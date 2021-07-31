@@ -12,11 +12,15 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Pets.Application.Input.Commands.PetsContext;
+using Pets.Application.Input.Commands.VaccineContext;
 using Pets.Application.Input.Handlers.PetsContext;
+using Pets.Application.Input.Handlers.VaccineContext;
 using Pets.Application.Repositories.PetsContext;
+using Pets.Application.Repositories.VaccineContext;
 using Pets.Infrastructure.AbsFactory;
 using Pets.Infrastructure.Factory;
 using Pets.Infrastructure.Repositories.PetsContext;
+using Pets.Infrastructure.Repositories.VaccineContext;
 
 namespace Pets.API
 {
@@ -38,11 +42,14 @@ namespace Pets.API
             services.AddScoped<AbsDBFactory, SqlFactory>();
             services.AddTransient<IOwnerRepository, OwnerRepository>();
             services.AddTransient<IPetRepository, PetRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
 
             services.AddTransient<InsertOwnerHandler, InsertOwnerHandler>();
             services.AddTransient<InsertOwnerCommand, InsertOwnerCommand>();
             services.AddTransient<InsertPetHandler, InsertPetHandler>();
             services.AddTransient<InsertPetCommand, InsertPetCommand>();
+            services.AddTransient<InsertCategoryHandler, InsertCategoryHandler>();
+            services.AddTransient<InsertCategoryCommand, InsertCategoryCommand>();
 
             services.AddSwaggerGen(c =>
             {
