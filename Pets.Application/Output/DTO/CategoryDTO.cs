@@ -1,5 +1,4 @@
 using System;
-using Pets.Application.Output.Results;
 
 namespace Pets.Application.Output.DTO
 {

@@ -1,14 +1,14 @@
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using Dapper;
+using Pets.Application.AbsFactory;
 using Pets.Application.Output.DTO;
 using Pets.Application.Output.Requests.PetsRequests;
 using Pets.Application.Output.Results;
+using Pets.Application.Output.Results.Interfaces;
 using Pets.Application.Repositories.PetsContext;
 using Pets.Domain.Entities.PetsContext;
-using Pets.Infrastructure.AbsFactory;
 
 namespace Pets.Infrastructure.Repositories.PetsContext
 {
@@ -20,7 +20,7 @@ namespace Pets.Infrastructure.Repositories.PetsContext
             _connection = factory.CreateConnection();
         }
 
-        public Result DeleteOwnerById(Guid ownerId)
+        public IResultBase DeleteOwnerById(Guid ownerId)
         {
             try
             {

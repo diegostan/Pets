@@ -1,8 +1,8 @@
 using System.Data;
 using Pets.Application.Repositories.VaccineContext;
 using Pets.Domain.Entities.VaccineContext;
-using Pets.Infrastructure.AbsFactory;
 using Dapper;
+using Pets.Application.AbsFactory;
 
 namespace Pets.Infrastructure.Repositories.VaccineContext
 {

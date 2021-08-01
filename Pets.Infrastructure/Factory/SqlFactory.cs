@@ -1,6 +1,6 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
-using Pets.Infrastructure.AbsFactory;
+using Pets.Application.AbsFactory;
 
 namespace Pets.Infrastructure.Factory
 {

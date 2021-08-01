@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 using Pets.Application.Output.DTO;
 using Pets.Application.Repositories.VaccineContext;
 using Pets.Domain.Entities.VaccineContext;
-using Pets.Infrastructure.AbsFactory;
 using Dapper;
 using Pets.Application.Output.Results;
 using Pets.Application.Output.Requests.VaccineRequest;
-using System.Linq;
+using Pets.Application.AbsFactory;
 
 namespace Pets.Infrastructure.Repositories.VaccineContext
 {

@@ -1,5 +1,4 @@
 using System;
-using Pets.Domain.ValueObjects;
 
 namespace Pets.Application.Output.DTO
 {

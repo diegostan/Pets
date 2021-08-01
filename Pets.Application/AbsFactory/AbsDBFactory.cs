@@ -1,6 +1,6 @@
 using System.Data;
 
-namespace Pets.Infrastructure.AbsFactory
+namespace Pets.Application.AbsFactory
 {
     public abstract class AbsDBFactory
     {

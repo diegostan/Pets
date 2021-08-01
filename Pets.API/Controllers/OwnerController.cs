@@ -44,7 +44,7 @@ namespace Pets.API.Controllers
         [Route("DeleteOwner")]
         public Result DeleteOwner([FromServices] IOwnerRepository repository, Guid ownerId)
         {
-            return repository.DeleteOwnerById(ownerId);
+            return (Result)repository.DeleteOwnerById(ownerId);
         }
     }
 }

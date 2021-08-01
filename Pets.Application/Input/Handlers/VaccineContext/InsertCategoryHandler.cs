@@ -39,7 +39,6 @@ namespace Pets.Application.Input.Handlers.VaccineContext
 
             result = new Result(400, "Requisição inválida! Verifique os campos e tente novamente", true);
             result.SetNotifications(category.Notifications as List<Notification>);
-
             return result;
         }
     }

@@ -19,7 +19,7 @@ namespace Pets.Application.Output.Results
         public int ResultCode { get; private set; }
         public string Message { get; private set; }
         public bool IsOk { get; private set; }
-        public object Data { get; set; }        
+        public object Data { get; private set; }        
         public IReadOnlyCollection<Notification> Notifications => _notifications;
 
         public void SetNotifications(List<Notification> notifications)
