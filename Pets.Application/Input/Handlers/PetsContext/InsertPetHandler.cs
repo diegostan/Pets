@@ -32,6 +32,7 @@ namespace Pets.Application.Input.Handlers.PetsContext
                 catch (Exception ex)
                 {
                     result = new Result(500, $"Falha interna do servidor, detalhes: {ex.Message}", false);
+                    return result;
                 }
                                 
             }

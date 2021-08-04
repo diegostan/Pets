@@ -7,29 +7,33 @@ namespace Pets.Infrastructure.Queries
     {
         private static string _table;
         private static string _query;
+        private static object _parameters;
 
-        public static string GetPetsByOwnerId(Guid ownerId)
+        public static object[] GetPetsByOwnerId(Guid ownerId)
         {
             _table = Map.ContextMapping.GetPetTable();
-            _query = $@"SELECT *FROM {_table} WHERE [OwnerId] = '{ownerId}'";
-            return _query;
+            _query = $@"SELECT *FROM {_table} WHERE [OwnerId] = @OwnerId";
+            _parameters = new { OwnerId = ownerId };
+            return new object[] { _query, _parameters };
         }
 
-        public static string InsertPet(Pet pet)
+        public static object[] InsertPet(Pet pet)
         {
             _table = Map.ContextMapping.GetPetTable();
             _query = $@"
             INSERT INTO {_table}
-            VALUES
-            ('{pet.Id}',
-            '{pet.Name.FirstName}', 
-            '{pet.Name.LastName}', 
-            {pet.Identifier}, 
-            {pet.Age}, 
-            '{pet.OwnerId}', 
-            '{pet.DateCreated.ToString("yyyy-MM-dd HH:mm:ss")}
-            ')";
-            return _query;
+            VALUES (@Id, @FirstName, @LastName, @Identifier, @Age, @OwnerId, @DateCreated)";
+            _parameters = new
+            {
+                Id = pet.Id,
+                FirstName = pet.Name.FirstName,
+                LastName = pet.Name.LastName,
+                Identifier = pet.Identifier,
+                Age = pet.Age,
+                OwnerId = pet.OwnerId,
+                DateCreated = pet.DateCreated.ToString("yyyy-dd-MM HH:mm:ss")
+            };
+            return new object[] { _query, _parameters };
         }
     }
 }

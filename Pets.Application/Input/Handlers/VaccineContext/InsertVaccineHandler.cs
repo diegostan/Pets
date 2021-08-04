@@ -31,6 +31,7 @@ namespace Pets.Application.Input.Handlers.VaccineContext
                 catch (Exception ex)
                 {
                     result = new Result(500, $"Falha ao cadastrar categoria. Mais detalhes: {ex.Message}", false);
+                    return result;
                 }
 
 
