@@ -35,5 +35,12 @@ namespace Pets.Infrastructure.Queries
             };
             return new object[] { _query, _parameters };
         }
+        public static object[] DeletePetById(Guid petId)
+        {
+            _table = Map.ContextMapping.GetPetTable();
+            _query = $@"DELETE {_table} WHERE [Id] = @PetId";
+            _parameters = new { PetId = petId };
+            return new object[] { _query, _parameters };
+        }
     }
 }

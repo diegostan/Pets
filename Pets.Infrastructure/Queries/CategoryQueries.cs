@@ -8,38 +8,41 @@ namespace Pets.Infrastructure.Queries
     {
         private static string _table;
         private static string _query;
+        private static object _parameters;
 
-        public static string GetAllCategories()
+        public static object GetAllCategories()
         {
             _table = Map.ContextMapping.GetCategoryTable();
-            _query = @"
-            SELECT [Id], [Description], [DateCreated] FROM [Category]
-            ";
-            return _query;
+            _query = $@"
+            SELECT [Id], [Description], [DateCreated] FROM {_table}";
+            return _query.ToString();
         }
 
-        public static string InsertCategory(Category category)
+        public static object[] InsertCategory(Category category)
         {
             _table = Map.ContextMapping.GetCategoryTable();
             _query = $@"
             INSERT INTO {_table}
-            VALUES 
-            ('{category.Id}', 
-            '{category.Description}', 
-            '{category.DateCreated.ToString("yyyy-dd-MM HH:mm:ss")}')
-            ";
-
-            return _query;
+            VALUES (@Id, @Description, @DateCreated)";
+            _parameters = new
+            {
+                Id = category.Id,
+                Description = category.Description,
+                DateCreated = category.DateCreated.ToString("yyyy-dd-MM HH:mm:ss")
+            };
+            return new object[] { _query, _parameters };
         }
 
-        public static string DeleteCategoryById(Guid categoryId)
+        public static object[] DeleteCategoryById(Guid categoryId)
         {
             _table = Map.ContextMapping.GetCategoryTable();
             _query = $@"
-            DELETE [Category] WHERE [Id] = '{categoryId}'
-            ";
-
-            return _query;
+            DELETE {_table} WHERE [Id] = @CategoryId";
+            _parameters = new
+            {
+                CategoryId = categoryId
+            };
+            return new object[] { _query, _parameters };            
         }
     }
 }

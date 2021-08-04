@@ -27,6 +27,7 @@ namespace Pets.Application.Input.Handlers.PetsContext
                 {
                     _repository.InsertPet(pet);
                     result = new Result(200, "Pet inserido com sucesso", true);
+                    result.SetData(pet);
                     return result;
                 }
                 catch (Exception ex)

@@ -28,8 +28,16 @@ namespace Pets.API.Controllers
         [HttpPost]
         [Route("PostPet")]
         public Result PostPet([FromServices] InsertPetHandler handler, InsertPetCommand command)
-        {            
+        {
             return (Result)handler.Handle(command);
+        }
+
+        [AllowAnonymous]
+        [HttpDelete]
+        [Route("DeletePet")]
+        public Result DeletePet([FromServices] IPetRepository repository, Guid ownerId)
+        {
+            return (Result)repository.DeletePetById(ownerId);
         }
     }
 }
