@@ -1,6 +1,7 @@
 using System;
 using Pets.Domain.Entities.VaccineContext;
 
+
 namespace Pets.Infrastructure.Queries
 {
     public static class CategoryQueries
@@ -11,7 +12,7 @@ namespace Pets.Infrastructure.Queries
         public static string GetAllCategories()
         {
             _table = Map.ContextMapping.GetCategoryTable();
-            _query = $@"
+            _query = @"
             SELECT [Id], [Description], [DateCreated] FROM [Category]
             ";
             return _query;

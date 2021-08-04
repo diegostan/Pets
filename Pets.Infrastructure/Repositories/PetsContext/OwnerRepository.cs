@@ -9,6 +9,7 @@ using Pets.Application.Output.Results;
 using Pets.Application.Output.Results.Interfaces;
 using Pets.Application.Repositories.PetsContext;
 using Pets.Domain.Entities.PetsContext;
+using Pets.Infrastructure.Queries;
 
 namespace Pets.Infrastructure.Repositories.PetsContext
 {
@@ -26,7 +27,8 @@ namespace Pets.Infrastructure.Repositories.PetsContext
             {
                 using (_connection)
                 {
-                    if (_connection.Execute(Queries.OwnerQueries.DeleteOwnerById(ownerId)) > 0)
+                    var query = Queries.OwnerQueries.DeleteOwnerById(ownerId);
+                    if (_connection.Execute(query[0].ToString(), query[1]) > 0)
                         return new Result(200, "Dono apagado com sucesso", true);
 
                     return new Result(404, "Não foram encontrados donos com esse ID", true);
@@ -46,7 +48,8 @@ namespace Pets.Infrastructure.Repositories.PetsContext
             {
                 try
                 {
-                    ownerRequest.Owner = await _connection.QueryFirstOrDefaultAsync<OwnerDTO>(Queries.OwnerQueries.GetOwnerByDocument(document));
+                    var query = Queries.OwnerQueries.GetOwnerByDocument(document);
+                    ownerRequest.Owner = await _connection.QueryFirstOrDefaultAsync<OwnerDTO>(query[0].ToString(), query[1]);
                     ownerRequest.Result = (ownerRequest.Owner.DocumentNumber != null ? new Result(200, $"Requisição realizada com sucesso", true)
                     : new Result(404, $"Não foram encontrados donos com esse numero de documento.", true));
                 }
@@ -66,7 +69,8 @@ namespace Pets.Infrastructure.Repositories.PetsContext
             {
                 try
                 {
-                    ownerRequest.Owner = await _connection.QueryFirstOrDefaultAsync<OwnerDTO>(Queries.OwnerQueries.GetOwnerByEmail(email));
+                    var query = Queries.OwnerQueries.GetOwnerByEmail(email);
+                    ownerRequest.Owner = await _connection.QueryFirstOrDefaultAsync<OwnerDTO>(query[0].ToString(), query[1]);
                      ownerRequest.Result = (ownerRequest.Owner.DocumentNumber != null ? new Result(200, $"Requisição realizada com sucesso", true)
                     : new Result(404, $"Não foram encontrados donos com esse e-mail.", true));
                     
@@ -83,7 +87,8 @@ namespace Pets.Infrastructure.Repositories.PetsContext
         {
             using (_connection)
             {
-                _connection.Execute(Queries.OwnerQueries.InsertOwner(owner));
+                var query = Queries.OwnerQueries.InsertOwner(owner);
+                _connection.Execute(query[0].ToString(), query[1]);
             }
         }
     }

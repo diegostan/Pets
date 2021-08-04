@@ -27,11 +27,13 @@ namespace Pets.Application.Input.Handlers.PetsContext
                 {
                     _repository.InsertOwner(owner);
                     result = new Result(200, $"Dono {owner.Name.FirstName} inserido com sucesso", true);
+                    result.SetData(owner);
                     return result;
                 }
                 catch (Exception ex)
                 {
                     result = new Result(500, $"Falha interna do servidor, detalhes: {ex.Message}", false);
+                    return result;
                 }                
             }            
             result = new Result(400, $"Falha ao inserir o dono {owner.Name.FirstName} na base de dados, verifique os campos e tente novamente.", false);

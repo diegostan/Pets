@@ -9,6 +9,8 @@ using Dapper;
 using Pets.Application.Output.Results;
 using Pets.Application.Output.Requests.VaccineRequest;
 using Pets.Application.AbsFactory;
+using Dapper.Contrib.Extensions;
+using Pets.Infrastructure.Queries;
 
 namespace Pets.Infrastructure.Repositories.VaccineContext
 {
