@@ -6,6 +6,6 @@ namespace Pets.Application.Repositories
 {
     public interface IOwnerPetsRepository
     {
-        Task<IEnumerable<OwnerPetsRequest>> GetOwnerPetsByDocumentAsync(string document);
+        Task<OwnerPetsRequest> GetOwnerPetsByDocumentAsync(string document);
     }
 }

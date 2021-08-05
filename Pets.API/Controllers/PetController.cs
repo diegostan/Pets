@@ -8,6 +8,7 @@ using Pets.Application.Input.Handlers.PetsContext;
 using Pets.Application.Output.DTO;
 using Pets.Application.Output.Requests.PetsRequests;
 using Pets.Application.Output.Results;
+using Pets.Application.Repositories;
 using Pets.Application.Repositories.PetsContext;
 
 namespace Pets.API.Controllers
@@ -22,6 +23,14 @@ namespace Pets.API.Controllers
         public async Task<PetRequest> GetPetsByOwnerId([FromServices] IPetRepository repository, Guid ownerId)
         {
             return await repository.GetPetsByOwnerIdAsync(ownerId);
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("GetPetsByOwnerDocument")]
+        public async Task<OwnerPetsRequest> GetPetsByOwnerId([FromServices] IOwnerPetsRepository repository, string document)
+        {
+            return await repository.GetOwnerPetsByDocumentAsync(document);
         }
 
         [AllowAnonymous]

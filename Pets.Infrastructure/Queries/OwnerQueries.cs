@@ -19,7 +19,7 @@ namespace Pets.Infrastructure.Queries
         public static object[] GetOwnerByEmail(string email)
         {
             _table = Map.ContextMapping.GetOwnerTable();
-            _query = $"SELECT TOP 1 * FROM [Owner] WHERE [Email] = @Email";
+            _query = $"SELECT TOP 1 * FROM {_table} WHERE [Email] = @Email";
             _parameters = new { Email = email };
             return new object[] { _query, _parameters };
         }

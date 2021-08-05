@@ -16,6 +16,10 @@ namespace Pets.Infrastructure.Repositories.PetsContext
     public class OwnerRepository : IOwnerRepository
     {
         private readonly IDbConnection _connection;
+        public OwnerRepository(IDbConnection connection)
+        {
+            _connection = connection;
+        }
         public OwnerRepository(AbsDBFactory factory)
         {
             _connection = factory.CreateConnection();
