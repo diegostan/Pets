@@ -9,17 +9,12 @@ using Pets.Application.Output.Results;
 using Pets.Application.Output.Results.Interfaces;
 using Pets.Application.Repositories.PetsContext;
 using Pets.Domain.Entities.PetsContext;
-using Pets.Infrastructure.Queries;
 
 namespace Pets.Infrastructure.Repositories.PetsContext
 {
     public class OwnerRepository : IOwnerRepository
     {
         private readonly IDbConnection _connection;
-        public OwnerRepository(IDbConnection connection)
-        {
-            _connection = connection;
-        }
         public OwnerRepository(AbsDBFactory factory)
         {
             _connection = factory.CreateConnection();
