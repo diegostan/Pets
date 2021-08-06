@@ -11,7 +11,7 @@ namespace Pets.Infrastructure.Repositories.VaccineContext
         private readonly IDbConnection _connection;
         public VaccineRepository(AbsDBFactory factory)
         {
-            _connection = factory.CreateConnection();
+            _connection = factory.GetConnection().CreateConnection();
         }
         public void InsertVaccine(Vaccine vaccine)
         {

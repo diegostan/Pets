@@ -1,6 +1,8 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
 using Pets.Application.AbsFactory;
+using Pets.Application.AbsFactory.Products;
+using Pets.Infrastructure.Factory.Products;
 
 namespace Pets.Infrastructure.Factory
 {
@@ -11,9 +13,10 @@ namespace Pets.Infrastructure.Factory
         {
             connectionString = Map.Secret.GetConnectionString();
         }
-        public override IDbConnection CreateConnection()
+
+        public override DbConnection GetConnection()
         {
-            return new SqlConnection(connectionString);
+            return new SqlConnectionProduct();
         }
     }
 }
