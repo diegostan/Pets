@@ -1,15 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Threading.Tasks;
 using Pets.Application.AbsFactory;
 using Pets.Application.Output.DTO;
 using Pets.Application.Output.Requests.PetsRequests;
 using Pets.Application.Output.Results;
-using Pets.Application.Repositories;
-using Pets.Infrastructure.Repositories.PetsContext;
+using Pets.Application.Repositories.PetsContext;
 
-namespace Pets.Infrastructure.Repositories
+namespace Pets.Infrastructure.Repositories.PetsContext
 {
     public class OwnerPetsRepository : IOwnerPetsRepository
     {

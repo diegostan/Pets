@@ -9,11 +9,9 @@ using Pets.Application.Input.Commands.PetsContext;
 using Pets.Application.Input.Commands.VaccineContext;
 using Pets.Application.Input.Handlers.PetsContext;
 using Pets.Application.Input.Handlers.VaccineContext;
-using Pets.Application.Repositories;
 using Pets.Application.Repositories.PetsContext;
 using Pets.Application.Repositories.VaccineContext;
 using Pets.Infrastructure.Factory;
-using Pets.Infrastructure.Repositories;
 using Pets.Infrastructure.Repositories.PetsContext;
 using Pets.Infrastructure.Repositories.VaccineContext;
 
@@ -38,7 +36,7 @@ namespace Pets.API
             services.AddTransient<IOwnerRepository, OwnerRepository>();
             services.AddTransient<IPetRepository, PetRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<IOwnerPetsRepository, OwnerPetsRepository>();
+            services.AddTransient<IOwnerPetsRepository, OwnerPetsRepository>();
 
             services.AddTransient<InsertOwnerHandler, InsertOwnerHandler>();
             services.AddTransient<InsertOwnerCommand, InsertOwnerCommand>();
