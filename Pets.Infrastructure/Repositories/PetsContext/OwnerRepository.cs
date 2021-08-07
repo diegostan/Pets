@@ -3,6 +3,7 @@ using System.Data;
 using System.Threading.Tasks;
 using Dapper;
 using Pets.Application.AbsFactory;
+using Pets.Application.AbsFactory.Products;
 using Pets.Application.Output.DTO;
 using Pets.Application.Output.Requests.PetsRequests;
 using Pets.Application.Output.Results;
@@ -15,6 +16,10 @@ namespace Pets.Infrastructure.Repositories.PetsContext
     public class OwnerRepository : IOwnerRepository
     {
         private readonly IDbConnection _connection;
+        public OwnerRepository(DbConnection connection)
+        {
+            _connection = connection.CreateConnection();
+        }
         public OwnerRepository(AbsDBFactory factory)
         {
             _connection = factory.GetSqlConnection().CreateConnection();
