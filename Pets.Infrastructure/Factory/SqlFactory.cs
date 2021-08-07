@@ -11,12 +11,17 @@ namespace Pets.Infrastructure.Factory
         private readonly string connectionString;
         public SqlFactory()
         {
-            connectionString = Map.Secret.GetConnectionString();
+            connectionString = Map.Secret.GetSqlServerConnectionString();
         }
 
-        public override DbConnection GetConnection()
+        public override DbConnection GetPostgreSqlConnection()
+        {
+            return new PostgreSqlConnectionProduct();
+        }
+
+        public override DbConnection GetSqlConnection()
         {
             return new SqlConnectionProduct();
-        }
+        }        
     }
 }

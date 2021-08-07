@@ -19,7 +19,7 @@ namespace Pets.Infrastructure.Repositories.PetsContext
         private readonly IDbConnection _connection;
         public PetRepository(AbsDBFactory factory)
         {
-            _connection = factory.GetConnection().CreateConnection();
+            _connection = factory.GetSqlConnection().CreateConnection();
         }
 
         public IResultBase DeletePetById(Guid petId)

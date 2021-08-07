@@ -22,8 +22,8 @@ namespace Pets.Domain.Entities.PetsContext
         {
             var contracts =
             new ContractValidations<Owner>()
-            .FirstNameIsOk(this.Name, 20, 5, "O primeiro nome deve ter entre 5 caracteres e 20 caracteres", "FirstName")
-            .LastNameIsOk(this.Name, 20, 5, "O segundo nome deve ter entre 5 caracteres e 20 caracteres", "LastName")
+            .FirstNameIsOk(this.Name, 20, 3, "O primeiro nome deve ter entre 3 caracteres e 20 caracteres", "FirstName")
+            .LastNameIsOk(this.Name, 20, 3, "O segundo nome deve ter entre 3 caracteres e 20 caracteres", "LastName")
             .EmailIsValid(this.Email, "O email não é válido", "Email")
             .DocumentIsValid(this.Document, "O documento não é válido", "Document");
 

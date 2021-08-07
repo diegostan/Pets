@@ -5,7 +5,9 @@ namespace Pets.Application.AbsFactory
 {
     public abstract class AbsDBFactory
     {
-        public abstract DbConnection GetConnection();
+        public abstract DbConnection GetSqlConnection();
+
+        public abstract DbConnection GetPostgreSqlConnection();
         
     }
 }

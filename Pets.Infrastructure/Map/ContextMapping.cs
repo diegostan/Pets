@@ -4,20 +4,20 @@ namespace Pets.Infrastructure.Map
     {
         public static string GetOwnerTable()
         {
-            return "[Owner]";
+            return "Owner";
         }
 
         public static string GetPetTable()
         {
-            return "[Pet]";
+            return "Pet";
         }
         public static string GetCategoryTable()
         {
-            return "[Category]";
+            return "Category";
         }
         public static string GetVaccineTable()
         {
-            return "[Vaccine]";
+            return "Vaccine";
         }
     }
 }

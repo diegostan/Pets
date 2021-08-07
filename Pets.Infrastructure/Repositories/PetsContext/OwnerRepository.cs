@@ -17,7 +17,7 @@ namespace Pets.Infrastructure.Repositories.PetsContext
         private readonly IDbConnection _connection;
         public OwnerRepository(AbsDBFactory factory)
         {
-            _connection = factory.GetConnection().CreateConnection();
+            _connection = factory.GetSqlConnection().CreateConnection();
         }
 
         public IResultBase DeleteOwnerById(Guid ownerId)

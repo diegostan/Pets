@@ -32,7 +32,7 @@ GO
 SELECT *FROM [Owner]
 
 -- Retornar por documento
-SELECT TOP 1 * FROM [Owner] WHERE [DocumentNumber] = '12356875898'
+SELECT * FROM Owner WHERE DocumentNumber = '12356875898'
 -- Retornar por email
 SELECT TOP 1 * FROM [Owner] WHERE [Email] = '12356875898'
 

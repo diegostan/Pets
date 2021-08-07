@@ -17,7 +17,7 @@ namespace Pets.Infrastructure.Repositories.VaccineContext
         private readonly IDbConnection _connection;
         public CategoryRepository(AbsDBFactory factory)
         {
-            _connection = factory.GetConnection().CreateConnection();
+            _connection = factory.GetSqlConnection().CreateConnection();
         }
 
         public void DeleteCategory(Guid categoryId)

@@ -1,19 +1,18 @@
 using System.Data;
-using Microsoft.Data.SqlClient;
 using Pets.Application.AbsFactory.Products;
 
 namespace Pets.Infrastructure.Factory.Products
 {
-    public class SqlConnectionProduct : DbConnection
+    public class PostgreSqlConnectionProduct : DbConnection
     {
         private readonly string _connectionString;
-        public SqlConnectionProduct()
+        public PostgreSqlConnectionProduct()
         {
-            _connectionString = Map.Secret.GetSqlServerConnectionString();
+            _connectionString = Map.Secret.GetPostgreSqlConnectionString();
         }
         public override IDbConnection CreateConnection()
         {
-            return new SqlConnection(_connectionString);
+            return new Npgsql.NpgsqlConnection(_connectionString);
         }
     }
 }

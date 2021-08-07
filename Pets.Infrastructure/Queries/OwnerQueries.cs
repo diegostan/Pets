@@ -11,7 +11,7 @@ namespace Pets.Infrastructure.Queries
         public static object[] GetOwnerByDocument(string document)
         {
             _table = Map.ContextMapping.GetOwnerTable();
-            _query = $@"SELECT TOP 1 * FROM {_table} WHERE [DocumentNumber] = @Document";
+            _query = $@"SELECT * FROM {_table} WHERE DocumentNumber = @Document";
             _parameters = new { Document = document };
             return new object[] { _query, _parameters };
         }
@@ -19,7 +19,7 @@ namespace Pets.Infrastructure.Queries
         public static object[] GetOwnerByEmail(string email)
         {
             _table = Map.ContextMapping.GetOwnerTable();
-            _query = $"SELECT TOP 1 * FROM {_table} WHERE [Email] = @Email";
+            _query = $"SELECT * FROM {_table} WHERE Email = @Email";
             _parameters = new { Email = email };
             return new object[] { _query, _parameters };
         }
@@ -49,7 +49,7 @@ namespace Pets.Infrastructure.Queries
         public static object[] DeleteOwnerById(Guid ownerId)
         {
             _table = Map.ContextMapping.GetOwnerTable();
-            _query = $@"DELETE {_table} WHERE [Id] = @OwnerId";
+            _query = $@"DELETE FROM {_table} WHERE Id = @OwnerId";
             _parameters = new { OwnerId = ownerId };
             return new object[] { _query, _parameters };
         }
