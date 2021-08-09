@@ -9,7 +9,7 @@ namespace Pets.Infrastructure.Queries
 
         public static string InsertVaccine(Vaccine vaccine)
         {
-            _table = Map.ContextMapping.GetVaccineTable();
+            _table = ContextMapping.Tables.GetVaccineTable();
             _query = $@"
             INSERT INTO {_table}  
             VALUES 

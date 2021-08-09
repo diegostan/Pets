@@ -11,15 +11,15 @@ namespace Pets.Infrastructure.Queries
 
         public static object[] GetPetsByOwnerId(Guid ownerId)
         {
-            _table = Map.ContextMapping.GetPetTable();
-            _query = $@"SELECT *FROM {_table} WHERE [OwnerId] = @OwnerId";
+            _table = ContextMapping.Tables.GetPetTable();
+            _query = $@"SELECT *FROM {_table} WHERE OwnerId = @OwnerId";
             _parameters = new { OwnerId = ownerId };
             return new object[] { _query, _parameters };
         }
 
         public static object[] InsertPet(Pet pet)
         {
-            _table = Map.ContextMapping.GetPetTable();
+            _table = ContextMapping.Tables.GetPetTable();
             _query = $@"
             INSERT INTO {_table}
             VALUES (@Id, @FirstName, @LastName, @Identifier, @Age, @OwnerId, @DateCreated)";
@@ -37,8 +37,8 @@ namespace Pets.Infrastructure.Queries
         }
         public static object[] DeletePetById(Guid petId)
         {
-            _table = Map.ContextMapping.GetPetTable();
-            _query = $@"DELETE {_table} WHERE [Id] = @PetId";
+            _table = ContextMapping.Tables.GetPetTable();
+            _query = $@"DELETE FROM {_table} WHERE Id = @PetId";
             _parameters = new { PetId = petId };
             return new object[] { _query, _parameters };
         }

@@ -11,7 +11,7 @@ namespace Pets.Infrastructure.Factory
         private readonly string connectionString;
         public SqlFactory()
         {
-            connectionString = Map.Secret.GetSqlServerConnectionString();
+            connectionString = ContextMapping.Secret.GetSqlServerConnectionStringProd();
         }
 
         public override DbConnection GetPostgreSqlConnection()

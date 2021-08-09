@@ -8,7 +8,7 @@ namespace Pets.Infrastructure.Factory.Products
         private readonly string _connectionString;
         public PostgreSqlConnectionProduct()
         {
-            _connectionString = Map.Secret.GetPostgreSqlConnectionString();
+            _connectionString = ContextMapping.Secret.GetPostgreSqlConnectionStringProd();
         }
         public override IDbConnection CreateConnection()
         {

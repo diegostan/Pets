@@ -1,6 +1,6 @@
-namespace Pets.Infrastructure.Map
+namespace Pets.Infrastructure.ContextMapping
 {
-    public static class ContextMapping
+    public static class Tables
     {
         public static string GetOwnerTable()
         {

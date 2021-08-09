@@ -9,7 +9,7 @@ namespace Pets.Infrastructure.Factory.Products
         private readonly string _connectionString;
         public SqlConnectionProduct()
         {
-            _connectionString = Map.Secret.GetSqlServerConnectionString();
+            _connectionString = ContextMapping.Secret.GetSqlServerConnectionStringProd();
         }
         public override IDbConnection CreateConnection()
         {

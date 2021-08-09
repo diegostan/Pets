@@ -12,15 +12,15 @@ namespace Pets.Infrastructure.Queries
 
         public static object GetAllCategories()
         {
-            _table = Map.ContextMapping.GetCategoryTable();
+            _table = ContextMapping.Tables.GetCategoryTable();
             _query = $@"
-            SELECT [Id], [Description], [DateCreated] FROM {_table}";
+            SELECT Id, Description, DateCreated FROM {_table}";
             return _query.ToString();
         }
 
         public static object[] InsertCategory(Category category)
         {
-            _table = Map.ContextMapping.GetCategoryTable();
+            _table = ContextMapping.Tables.GetCategoryTable();
             _query = $@"
             INSERT INTO {_table}
             VALUES (@Id, @Description, @DateCreated)";
@@ -35,9 +35,9 @@ namespace Pets.Infrastructure.Queries
 
         public static object[] DeleteCategoryById(Guid categoryId)
         {
-            _table = Map.ContextMapping.GetCategoryTable();
+            _table = ContextMapping.Tables.GetCategoryTable();
             _query = $@"
-            DELETE {_table} WHERE [Id] = @CategoryId";
+            DELETE FROM {_table} WHERE Id = @CategoryId";
             _parameters = new
             {
                 CategoryId = categoryId
