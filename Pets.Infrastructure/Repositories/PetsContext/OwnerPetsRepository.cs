@@ -17,7 +17,7 @@ namespace Pets.Infrastructure.Repositories.PetsContext
         public OwnerPetsRepository(AbsDBFactory factory)
         {
             _factory = factory;
-            _ownerRepository = new OwnerRepository(_factory.GetPostgreSqlConnection());
+            _ownerRepository = new OwnerRepository(_factory.GetSqlConnection());
             _petRepository = new PetRepository(_factory.GetSqlConnection());
         }
         public async Task<OwnerPetsRequest> GetOwnerPetsByDocumentAsync(string document)

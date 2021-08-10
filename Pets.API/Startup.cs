@@ -37,6 +37,7 @@ namespace Pets.API
             services.AddTransient<IPetRepository, PetRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IOwnerPetsRepository, OwnerPetsRepository>();
+            services.AddTransient<IVaccineRepository, VaccineRepository>();
 
             services.AddTransient<InsertOwnerHandler, InsertOwnerHandler>();
             services.AddTransient<InsertOwnerCommand, InsertOwnerCommand>();
@@ -44,6 +45,8 @@ namespace Pets.API
             services.AddTransient<InsertPetCommand, InsertPetCommand>();
             services.AddTransient<InsertCategoryHandler, InsertCategoryHandler>();
             services.AddTransient<InsertCategoryCommand, InsertCategoryCommand>();
+            services.AddTransient<InsertVaccineHandler, InsertVaccineHandler>();
+            services.AddTransient<InsertVaccineCommand, InsertVaccineCommand>();
 
             services.AddSwaggerGen(c =>
             {
