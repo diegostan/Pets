@@ -1,5 +1,4 @@
-<div>
-  
+<div>  
 # Pets 💙 
 <img src="https://img.icons8.com/color/48/000000/pets--v2.png"/>
 </div>
