@@ -1,4 +1,11 @@
-# Pets 💙
+<div>  
+  
+  <img align = "center" src="https://img.icons8.com/color/48/000000/pets--v2.png"/>
+
+</div>
+
+# Pets 💙 
+
 ## Projeto referente ao curso "Construindo uma API em camadas"
 
 Sejam bem vindos ao repositório da nossa aplicação de controle de vacinação de Pets 
